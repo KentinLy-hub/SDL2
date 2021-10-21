@@ -30,8 +30,8 @@ namespace {
 
 SDL_Surface* load_surface_for(const std::string& path,
                               SDL_Surface* window_surface_ptr) {
-
+return 0 ;
   // Helper function to load a png for a specific surface
   // See SDL_ConvertSurface
-}
+    }
 } // namespace

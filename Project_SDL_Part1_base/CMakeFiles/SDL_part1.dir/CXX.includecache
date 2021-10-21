@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/kentin/SDL2/Project_SDL_Part1_base/Project_SDL1.cpp
-Project_SDL1.h
-/home/kentin/SDL2/Project_SDL_Part1_base/Project_SDL1.h
-algorithm
--
-cassert
--
-cstdlib
--
-numeric
--
-random
--
-string
--
-
 /home/kentin/SDL2/Project_SDL_Part1_base/Project_SDL1.h
 SDL2/SDL.h
 -
