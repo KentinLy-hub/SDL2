@@ -23,19 +23,18 @@ int main(int argc, char* argv[]) {
 
   std::cout << "Exiting application with code " << retval << std::endl;
 */
-    auto window_ptr = SDL_CreateWindow("SDL2 Window",
-                                     SDL_WINDOWPOS_CENTERED,
-                                     SDL_WINDOWPOS_CENTERED,
-                                     1000, 500,
-                                     0);
-//    SDL_FillRect(window_ptr, NULL, SDL_MapRGB(window_ptr->format, 0 , 255 , 0));
-    //SDL_MapRGB(window_ptr->format, 0, 255, 0);
-/*
+
     SDL_Init(SDL_INIT_VIDEO);
-    ecran = SDL_SetVideoMode(800, 520, 32, SDL_HWSURFACE);
-     SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 17, 206, 112));
-*/
-    SDL_UpdateWindowSurface(window_ptr);
+    SDL_Window *window = SDL_CreateWindow("Mouton et Loup", 100, 100, 1000, 600, 0);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+    SDL_RenderClear(renderer);
+//    SDL_Delay(500);
+    SDL_RenderPresent(renderer);
+//    SDL_Delay(500);
+//    SDL_DestroyRenderer(renderer);
+//    SDL_DestroyWindow(window);
+//    SDL_UpdateWindowSurface(window_ptr);
 
     auto start = SDL_GetTicks();
 
