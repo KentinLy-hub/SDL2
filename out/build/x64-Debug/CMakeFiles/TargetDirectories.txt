@@ -1,0 +1,5 @@
+C:/Users/QueenM/Desktop/APPING_I2/Langage C++ avancé/P/SDL2/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/QueenM/Desktop/APPING_I2/Langage C++ avancé/P/SDL2/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/QueenM/Desktop/APPING_I2/Langage C++ avancé/P/SDL2/out/build/x64-Debug/Project_SDL_Part1_base/CMakeFiles/SDL_part1.dir
+C:/Users/QueenM/Desktop/APPING_I2/Langage C++ avancé/P/SDL2/out/build/x64-Debug/Project_SDL_Part1_base/CMakeFiles/edit_cache.dir
+C:/Users/QueenM/Desktop/APPING_I2/Langage C++ avancé/P/SDL2/out/build/x64-Debug/Project_SDL_Part1_base/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "tâche-CMakeLists",
+      "appliesTo": "Project_SDL_Part1_base/CMakeLists.txt",
+      "type": "launch"
+    }
+  ]
+}

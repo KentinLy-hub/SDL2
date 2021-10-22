@@ -2,39 +2,71 @@
 #include <stdio.h>
 #include <string>
 
-int main(int argc, char* argv[]) {
-/*
-  std::cout << "Starting up the application" << std::endl;
 
-  if (argc != 4)
-    throw std::runtime_error("Need three arguments - "
-                             "number of sheep, number of wolves, "
-                             "simulation time\n");
+//application* app = nullptr;
 
-  init();
+int main(int argc, char* argv[]) 
+{
+   /* init();
+    application* app = new application();
+    
+    app->window();
+    app->handleEvents();
+    app->clean();
+    */
+   
 
-  std::cout << "Done with initilization" << std::endl;
+    //Initialize SDL
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+        throw std::runtime_error(std::string(SDL_GetError()));
 
-  application my_app(std::stoul(argv[1]), std::stoul(argv[2]));
+    //Initialize PNG loading
+    int imgFlags = IMG_INIT_PNG;
+    if (!(IMG_Init(imgFlags) & imgFlags))
+        throw std::runtime_error("SDL_image could not initialize! "
+            "SDL_image Error: " + std::string(IMG_GetError()));
 
-  std::cout << "Created window" << std::endl;
+    auto window_ptr = SDL_CreateWindow("MOUTON ET LOUP",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        frame_width, frame_height,
+        0);
 
-  int retval = my_app.loop(std::stoul(argv[3]));
+    if (!window_ptr)
+        throw std::runtime_error(std::string(SDL_GetError()));
+    //
+    auto window_surface_ptr = SDL_GetWindowSurface(window_ptr);
 
-  std::cout << "Exiting application with code " << retval << std::endl;
-*/
+    if (!window_surface_ptr)
+        throw std::runtime_error(std::string(SDL_GetError()));
 
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window *window = SDL_CreateWindow("Mouton et Loup", 100, 100, 1000, 600, 0);
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_RenderClear(renderer);
-//    SDL_Delay(500);
-    SDL_RenderPresent(renderer);
-//    SDL_Delay(500);
-//    SDL_DestroyRenderer(renderer);
-//    SDL_DestroyWindow(window);
-//    SDL_UpdateWindowSurface(window_ptr);
+    SDL_FillRect(window_surface_ptr, NULL, SDL_MapRGB(window_surface_ptr->format, 0, 255, 0));
+
+    auto sheep = IMG_Load("media/sheep.png");
+    auto wolf = IMG_Load("media/wolf.png");
+
+   if (!sheep)
+       throw std::runtime_error("Could not load image");
+
+   if (!wolf)
+       throw std::runtime_error("Could not load image");
+
+
+
+   auto rect = SDL_Rect{ 0,0,194,259 };
+   auto rect1 = SDL_Rect{ 100,100,100,259 };
+   //auto rect2 = SDL_Rect{ 0,0,194,100 };
+
+   if (SDL_BlitSurface(sheep, NULL, window_surface_ptr, &rect))
+       throw std::runtime_error("Could not apply texture.");
+
+   if (SDL_BlitSurface(wolf, NULL, window_surface_ptr, &rect1))
+       throw std::runtime_error("Could not apply texture.");
+
+   //if (SDL_BlitSurface(sheep, NULL, window_surface_ptr, &rect2))
+     //  throw std::runtime_error("Could not apply texture.");
+
+    SDL_UpdateWindowSurface(window_ptr);
 
     auto start = SDL_GetTicks();
 
@@ -48,7 +80,13 @@ int main(int argc, char* argv[]) {
             }
         }
     }
+
+    SDL_FreeSurface(window_surface_ptr);
+    SDL_DestroyWindow(window_ptr);
+    IMG_Quit();
     SDL_Quit();
+    std::cout << "Game Cleaned " << std::endl;
+
+
     return EXIT_SUCCESS;
-//  return retval;
 }
