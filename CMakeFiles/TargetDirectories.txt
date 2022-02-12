@@ -1,5 +1,0 @@
-/home/kentin/SDL2/CMakeFiles/rebuild_cache.dir
-/home/kentin/SDL2/CMakeFiles/edit_cache.dir
-/home/kentin/SDL2/Project_SDL_Part1_base/CMakeFiles/rebuild_cache.dir
-/home/kentin/SDL2/Project_SDL_Part1_base/CMakeFiles/edit_cache.dir
-/home/kentin/SDL2/Project_SDL_Part1_base/CMakeFiles/SDL_part1.dir
